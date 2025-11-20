@@ -1,4 +1,4 @@
-import CvEntry from "../components/CvEntry"
+import CvEntry from "../../components/CvEntry"
 
 export default function Cv() {
   return(
@@ -13,6 +13,7 @@ export default function Cv() {
       <p>Assisted in the development of a mobile application using Flutter.</p>
       <p>Participated in code reviews and contributed to team meetings.</p>
     </CvEntry>
+
     </>
   )
 }
