@@ -6,9 +6,7 @@ import { eq } from 'drizzle-orm'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-let tasks: { Name: string; Email: string; Phone: string; Subject: string; Message: string}[] = [
-
-]
+let tasks: { Name: string; Email: string; Phone: string; Subject: string; Message: string}[] = []
 
 export async function getContact() {
     return tasks
@@ -16,11 +14,11 @@ export async function getContact() {
 
 export async function addContact(form: FormData) {
     tasks.push({
-        Name: String(form.get('Name')),
-        Email: String(form.get('Email')),
-        Phone: String(form.get('Phone')),
-        Subject: String(form.get('Subject')),
-        Message: String(form.get('Message')),
+        Name: String(form.get('fullname')),
+        Email: String(form.get('email')),
+        Phone: String(form.get('phone')),
+        Subject: String(form.get('subject')),
+        Message: String(form.get('message')),
     })
     //recharger la page
     redirect((await headers()).get('referer') ?? '/')

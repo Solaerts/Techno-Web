@@ -21,13 +21,12 @@ export default async function ContactPage() {
             <label> Your email: <input name ="Email" className="border m1-m2"/> </label>
             <label> Your phone number: <input name ="Phone" className="border m1-m2"/> </label>
             <label> Subject : <input name ="Subject" className="border m1-m2"/> </label>
-            <label> Message : <input name ="Message" className="border m1-m2"/> </label>
+            <label> Message : <input name ="Message" className="border"/> </label>
             <button className="ml-2 border bg-slate-200 px-2"> Submit </button>
         </form>
         </div>
         <ul>
             {tasks.map(contact => <Sender key="contact" Name={contact.Name} Email={contact.Email} Phone={contact.Phone} Subject={contact.Subject} Message={contact.Message}>
-                <p className="mt-2">This is a request added by a user.</p>
             </Sender>)}
         </ul>
 

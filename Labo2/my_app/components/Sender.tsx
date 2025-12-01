@@ -6,7 +6,6 @@ type SenderProps = {
     Phone: string;
     Subject: string;
     Message: string;
-    children: ReactNode;
 }
 
 export default function Sender(props: SenderProps){
@@ -19,7 +18,6 @@ export default function Sender(props: SenderProps){
                 <p><strong>Phone:</strong> {props.Phone}</p>
                 <p><strong>Subject:</strong> {props.Subject}</p>
                 <p><strong>Message:</strong> {props.Message}</p>
-                {props.children}
             </div>
         </div>
     )
