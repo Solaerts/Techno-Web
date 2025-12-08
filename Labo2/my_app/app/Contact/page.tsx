@@ -17,11 +17,16 @@ export default async function ContactPage() {
         <h1 className = "text-center text-3xl my-8"> New Contact</h1>
         <div className="p-4 border-slate-200 mb-4 bg-slate-100 rounded-lg shadow-md mx-4">
         <form action = {addContact} className="pl-4 border-l-4 border-slate-400 flex flex-col gap-4">
-            <label> Your name: <input name="Name" className="border m1-m2"/> </label>
-            <label> Your email: <input name ="Email" className="border m1-m2"/> </label>
-            <label> Your phone number: <input name ="Phone" className="border m1-m2"/> </label>
-            <label> Subject : <input name ="Subject" className="border m1-m2"/> </label>
-            <label> Message : <input name ="Message" className="border"/> </label>
+            <label className="text-heading"> Your name: </label>
+                <input name="Name" className="border m1-m2"/>
+            <label> Your email: </label>
+                <input name ="Email" className="border m1-m2"/> 
+            <label> Your phone number: </label>
+                <input name ="Phone" className="border m1-m2"/> 
+            <label> Subject : </label>
+                <input name ="Subject" className="border m1-m2"/>
+            <label> Message : </label>
+                <textarea name ="Message" rows={4} className="border rounded-xl w-full p-3.5 placeholder:text-body" placeholder="Write your message here ..."></textarea>
             <button className="ml-2 border bg-slate-200 px-2"> Submit </button>
         </form>
         </div>

@@ -1,7 +1,10 @@
 import { boolean, pgTable, text, uuid } from 'drizzle-orm/pg-core'
 
-export const tasksTable = pgTable('tasks', {
+export const contactTable = pgTable('Contact', {
   id: uuid().defaultRandom().primaryKey(),
-  title: text().notNull(),
-  done: boolean().default(false).notNull(),
+  Name: text("Name").notNull(),
+  Email: text("Email").notNull(),
+  Phone: text("Phone").notNull(),
+  Subject: text("Subject").notNull(),
+  Message: text("Message").notNull(),
 })
