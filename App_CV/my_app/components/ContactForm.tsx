@@ -1,7 +1,7 @@
 'use client';
 
-import { useFormState } from 'react-dom';
-import { submitContactMessage } from '../lib/action';
+import { useActionState } from 'react';
+import { submitContactMessage } from '@/lib/action';
 
 const initialState = {
   success: false,
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export default function ContactForm() {
-  const [state, formAction] = useFormState(submitContactMessage, initialState);
+  const [state, formAction, isPending] = useActionState(submitContactMessage, initialState);
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md border border-gray-200">
@@ -68,16 +68,21 @@ export default function ContactForm() {
           ></textarea>
         </div>
 
-        {/* Bouton d'envoi */}
+        {/* Bouton d'envoi avec état de chargement */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
+          disabled={isPending}
+          className={`w-full font-bold py-3 px-4 rounded-md transition duration-300 ${
+            isPending 
+              ? 'bg-gray-400 cursor-not-allowed text-gray-100' 
+              : 'bg-blue-600 text-white hover:bg-blue-700'
+          }`}
         >
-          Envoyer le message
+          {isPending ? 'Envoi en cours...' : 'Envoyer le message'}
         </button>
 
         {/* Message de retour */}
-        {state.message && (
+        {state?.message && (
           <p className={`mt-4 text-center text-sm font-medium ${state.success ? 'text-green-600' : 'text-red-600'}`}>
             {state.message}
           </p>
