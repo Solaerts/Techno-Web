@@ -1,5 +1,4 @@
 import ContactForm from '@/components/ContactForm';
-import NavBar from '@/components/NavBar'; // Assurez-vous que le chemin est correct
 
 export default function ContactPage() {
   return (
