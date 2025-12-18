@@ -19,7 +19,6 @@ export default function NavBar(){
         <nav className='bg-slate-800 text-slate-50 shadow-xl p-4'>
             <ul className='container mx-auto flex gap-4'>
                 <NavLink href="/">Home</NavLink>
-                <NavLink href="/pageCV">CV</NavLink>
                 <NavLink href="/Contact">Contact</NavLink>
             </ul>
         </nav>

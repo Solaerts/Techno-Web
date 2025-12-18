@@ -1,64 +1,128 @@
-import Image from "next/image";
+import CvEntry from "../components/CvEntry";
+import SkillCard from "../components/SkillCard";
+import NavBar from "../components/NavBar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+      
+      <main className="grow container mx-auto px-4 py-12 max-w-4xl">
+        {/* En-tête du CV */}
+        <header className="text-center mb-16">
+          <h1 className="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Nicolas Willaerts</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
+            Ingénieur Industriel & Électrique
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+            <span className="bg-white px-3 py-1 rounded shadow-sm">willaertsnicolas@gmail.com</span>
+            <span className="bg-white px-3 py-1 rounded shadow-sm">(+32) 496 77 20 12</span>
+            <a href="https://www.linkedin.com/in/willaertsnicolas" className="bg-white px-3 py-1 rounded shadow-sm text-blue-600 hover:text-blue-800 transition-colors">
+              Profil LinkedIn
+            </a>
+          </div>
+        </header>
+
+        {/* Section Expériences */}
+        <section className="mb-16 animate-fade-in-up">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <span className="bg-blue-600 w-2 h-8 mr-3 rounded-full"></span>
+            Expériences Professionnelles
+          </h2>
+          <div className="space-y-6">
+            <CvEntry 
+              title="Stage chez IMEC" 
+              date="Sept 2023 - Mai 2025" 
+              location="IMEC" 
+              description="Analyse de données pour le calcul EPE. Programmation et traitement de données avancé."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <CvEntry 
+              title="Consultant" 
+              date="2020 - 2024" 
+              location="ECAM Engineering Consult (EEC)" 
+              description="Réalisation de projets techniques extrascolaires. Assistance technique et mentorat en électronique."
+            />
+            <CvEntry 
+              title="Réparateur Bénévole" 
+              date="Sept 2023 - Sept 2024" 
+              location="ECAM Repair Cafe" 
+              description="Diagnostic et réparation d'objets du quotidien au sein d'une équipe FabLab."
+            />
+          </div>
+        </section>
+
+        {/* Section Projets */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <span className="bg-blue-600 w-2 h-8 mr-3 rounded-full"></span>
+            Projets Académiques & Personnels
+          </h2>
+          <div className="space-y-6">
+            <CvEntry 
+              title="Can Cooler (Projet EEC)" 
+              date="Sept 2023 - Sept 2024" 
+              description="Conception complète : modélisation du système de ventilation et dimensionnement de l'alimentation électrique."
+            />
+            <CvEntry 
+              title="Panneau Publicitaire Interactif" 
+              date="Fév 2023 - Mai 2023" 
+              description="Programmation des matrices LED et gestion de l'interactivité utilisateur. Travail d'équipe sur la résolution de bugs hardware."
+            />
+            <CvEntry 
+              title="Bras Télécommandé (Projet Intégrateur)" 
+              date="Sept 2022 - Mai 2023" 
+              description="Assemblage mécanique et programmation Arduino d'un bras robotisé pour un jeu d'adresse."
+            />
+          </div>
+        </section>
+        
+        {/* Section Formation */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <span className="bg-blue-600 w-2 h-8 mr-3 rounded-full"></span>
+            Formation
+          </h2>
+          <div className="space-y-6">
+            <CvEntry 
+              title="Master en Ingénierie Industrielle (Électronique)" 
+              date="2020 - Présent" 
+              location="ECAM, Bruxelles" 
+              description="Spécialisation en électronique et systèmes embarqués."
+            />
+            <CvEntry 
+              title="Bachelier en Sciences Physiques" 
+              date="Précédent" 
+              location="ULB, Bruxelles" 
+            />
+          </div>
+        </section>
+
+        {/* Section Compétences */}
+        <section>
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+            <span className="bg-blue-600 w-2 h-8 mr-3 rounded-full"></span>
+            Compétences
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <SkillCard 
+              title="Informatique & Tech" 
+              skills={[
+                "Langages : Python, C++ (basique), Octave",
+                "Logiciels : Altium Designer, AutoCAD, LTSpice, GNURadio",
+                "Bureautique : Microsoft Office Suite",
+                "IA : Utilisation d'outils d'intelligence artificielle"
+              ]}
+            />
+            <SkillCard 
+              title="Langues" 
+              skills={[
+                "Français : Langue maternelle",
+                "Anglais : Niveau B2 (Intermédiaire avancé)",
+                "Néerlandais : Notions de base"
+              ]}
+            />
+          </div>
+        </section>
+
       </main>
     </div>
   );
